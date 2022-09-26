@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: jms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jms
+  template:
+    metadata:
+      labels:
+        app: jms
+    spec:
+      containers:
+        - name: jms
+          image: jms:0.1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: jms
+  labels:
+    app: jms
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: jms

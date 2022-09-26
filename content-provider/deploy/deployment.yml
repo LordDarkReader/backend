@@ -1,0 +1,33 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: content-provider
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: content-provider
+  template:
+    metadata:
+      labels:
+        app: content-provider
+    spec:
+      containers:
+        - name: content-provider
+          image: content-provider:0.1
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: content-provider
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app: content-provider
