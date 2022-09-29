@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: content-provider
-          image: czarek7777/content-provider:0.4
+          image: czarek7777/content-provider:0.5
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
