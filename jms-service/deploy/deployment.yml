@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
         - name: jms
-          image: jms:0.1
-          imagePullPolicy: Never
+          image: czarek7777/jms:0.1
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
 ---
