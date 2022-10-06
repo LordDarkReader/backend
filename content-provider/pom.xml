@@ -10,7 +10,7 @@
 
 	<groupId>pl.czaki.content.provider</groupId>
 	<artifactId>content-provider</artifactId>
-	<version>0.0.2</version>
+	<version>0.0.5</version>
 	<name>content-provider</name>
 	<description>content-provider</description>
 	<properties>
@@ -35,6 +35,33 @@
 			<version>${spring.version}</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		</dependency>
+
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>1.18.24</version>
+				<scope>provided</scope>
+			</dependency>
+
+		<dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphiql-spring-boot-starter</artifactId>
+			<version>5.0.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-graphql</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphql-java-tools</artifactId>
+			<version>5.2.4</version>
+		</dependency>
+
 
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.graphql</groupId>-->

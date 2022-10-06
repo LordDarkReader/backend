@@ -1,0 +1,24 @@
+mutation {
+  createUser2(input: {
+     name: "Hulk",
+     email: "hulk@wp.pl",
+     isAdmin: false,
+     password: "dupa1234"
+  }) {
+    name
+  }
+}
+
+====================
+
+query {
+  findAllUsers{
+    name
+    isAdmin
+    email
+  }
+}
+
+====================
+
+
