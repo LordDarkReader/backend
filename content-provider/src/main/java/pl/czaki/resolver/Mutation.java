@@ -5,13 +5,12 @@ import com.coxautodev.graphql.tools.GraphQLMutationResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import pl.czaki.model.User;
 import pl.czaki.model.UserInput;
 import pl.czaki.repo.UserRepo;
 
-@CrossOrigin(origins = "http://localhost:3000")
+
 @RestController
 public class Mutation implements GraphQLMutationResolver {
 
