@@ -1,11 +1,11 @@
-package pl.czaki.repo;
+package pl.czaki.security.repo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
-import pl.czaki.model.User;
+import pl.czaki.security.model.User;
 
 @Repository
 public interface UserRepo extends MongoRepository<User, String> {
 
-    User findUserByName(String username);
+    User findByUsername(String username);
 }
