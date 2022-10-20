@@ -3,3 +3,5 @@ spring:
     mongodb:
       host: localhost
       database: chucky_db
+server:
+  port: 8083

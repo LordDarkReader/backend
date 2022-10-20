@@ -10,12 +10,26 @@ type User {
 	email: String!
 	isAdmin: Boolean
 	password: String!
+	roles: [Role]!
 }
+
+type Role {
+	id: ID!
+	name: String!
+}
+
+type Token {
+	accessToken: String!
+	refreshToken: String!
+}
+
 # Root
 type Query {
 	findAllUsers: [User]!
+	findAllRoles: [Role]!
 	findUserById(id: String): User!
 	countUsers: Int
+	getToken: Token!
 }
 # Root
 type Mutation {

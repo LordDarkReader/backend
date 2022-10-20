@@ -2,33 +2,25 @@ package pl.czaki.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-
-@Document(collection = "users")
+@Document(collection = "addresses")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-public class User {
+public class Address {
 
     @Id
     private String id;
 
-    private String name;
+    private String street;
 
-    private String email;
+    private String city;
 
-    private Boolean isAdmin;
+    private String zipCode;
 
-    private String password;
-
-    private List<Role> roles;
-
-    private Address address;
+    private ShippingAddress shippingAddress;
 
 }

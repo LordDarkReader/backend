@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import pl.czaki.security.model.Role;
+import pl.czaki.security.model.Token;
 import pl.czaki.security.model.User;
 import pl.czaki.security.service.UserService;
 
@@ -88,6 +89,20 @@ public class UserController {
         } else {
             throw new RuntimeException("Refresh token is missing");
         }
+    }
+
+    @GetMapping("/token")
+    public Token getToken(HttpServletRequest request, HttpServletResponse response) {
+        Algorithm algorithm = Algorithm.HMAC256("secret".getBytes());
+        String access_token = JWT.create()
+                .withSubject("Czarek")
+                .withExpiresAt(new Date(System.currentTimeMillis() + 10 * 60 * 1000))
+                .withIssuer(request.getRequestURL().toString())
+                .withClaim("roles", "ADMIN")
+                .sign(algorithm);
+        return Token.builder()
+                .accessToken(access_token)
+                .build();
     }
 }
 

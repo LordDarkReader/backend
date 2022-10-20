@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.czaki.api.JackpotResponse;
+import pl.czaki.repo.AddressRepo;
 import pl.czaki.service.JackpotService;
 import pl.czaki.service.TestService;
 
@@ -16,10 +17,13 @@ public class TestController {
 
     private JackpotService jackpotService;
 
+    private AddressRepo addressRepo;
+
     @Autowired
-    public TestController(TestService testService, JackpotService jackpotService) {
+    public TestController(TestService testService, JackpotService jackpotService,  AddressRepo addressRepo) {
         this.testService = testService;
         this.jackpotService = jackpotService;
+        this.addressRepo = addressRepo;
     }
 
 
